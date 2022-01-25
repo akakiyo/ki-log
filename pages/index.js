@@ -26,9 +26,6 @@ export async function getStaticProps() {
     fetchAPI("/tags", { populate: "*" }),
   ]);
 
-  // console.log("articles", articlesRes.data[0].attributes);
-  // console.log("homepage", homepageRes);
-  console.log("tag", tagsRes.data);
   return {
     props: {
       articles: articlesRes.data,
