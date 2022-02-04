@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { slide as SideMenu } from "react-burger-menu";
 import styled from "styled-components";
 
 const Menu = ({ tags }) => {
+  const [isActiveTags, setIsActiveTags] = useState({});
+  // tags.forEach((tag) => {
+  //   cons[tag.id] = false;
+
+  //   // isActiveTags.push({ [tag.id]: false });
+  // });
+  // useEffect(() => {
+
+  // }, []);
+  // console.log(isActiveTags[0]);
+  // console.log(isActiveTags[1]);
+  console.log(isActiveTags);
+  const setTag = (tag) => {
+    // setIsActiveTags({ ...isActiveTags, [tag.id]: true });
+  };
   return (
     <Container>
       <SideMenu width={250}>
         <div>タグ一覧</div>
         {tags.map((tag) => {
+          console.log(tag.id, isActiveTags[tag.id]);
           return (
-            <div key={tag.id}>
+            <div key={tag.id} onClick={setTag(tag)}>
               <Link href={`/tag/${tag.attributes.slug}`}>
                 <TagButton>
                   {tag.attributes.word}({tag.attributes.articles.data.length})
