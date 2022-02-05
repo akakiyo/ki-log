@@ -4,31 +4,35 @@ import { slide as SideMenu } from "react-burger-menu";
 import styled from "styled-components";
 
 const Menu = ({ tags }) => {
-  const [isActiveTags, setIsActiveTags] = useState({});
-  // tags.forEach((tag) => {
-  //   cons[tag.id] = false;
+  const tagsObj = {};
+  tags.forEach((tag) => {
+    tagsObj[tag.id] = false;
+  });
+  const [isActiveTags, setIsActiveTags] = useState(tagsObj);
 
-  //   // isActiveTags.push({ [tag.id]: false });
-  // });
-  // useEffect(() => {
-
-  // }, []);
-  // console.log(isActiveTags[0]);
-  // console.log(isActiveTags[1]);
-  console.log(isActiveTags);
   const setTag = (tag) => {
-    // setIsActiveTags({ ...isActiveTags, [tag.id]: true });
+    const previousActive = Object.keys(isActiveTags).filter(
+      (key) => isActiveTags[key] === true
+    );
+    if (previousActive.length) {
+      setIsActiveTags({
+        ...isActiveTags,
+        [previousActive[0]]: false,
+        [tag.id]: true,
+      });
+    } else {
+      setIsActiveTags({ ...isActiveTags, [tag.id]: true });
+    }
   };
   return (
     <Container>
       <SideMenu width={250}>
         <div>タグ一覧</div>
         {tags.map((tag) => {
-          console.log(tag.id, isActiveTags[tag.id]);
           return (
-            <div key={tag.id} onClick={setTag(tag)}>
+            <div key={tag.id} onClick={() => setTag(tag)}>
               <Link href={`/tag/${tag.attributes.slug}`}>
-                <TagButton>
+                <TagButton isActiveTags={isActiveTags[tag.id]}>
                   {tag.attributes.word}({tag.attributes.articles.data.length})
                 </TagButton>
               </Link>
@@ -120,6 +124,8 @@ const TagButton = styled.a`
     background: #67c5ff;
     color: white;
   }
+  background: ${(props) => (props.isActiveTags ? "#67c5ff" : "white")};
+  color: ${(props) => (props.isActiveTags ? "white" : "#67c5ff")};
 `;
 
 export default Menu;
