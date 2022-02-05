@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { slide as SideMenu } from "react-burger-menu";
 import styled from "styled-components";
@@ -116,7 +116,6 @@ const TagButton = styled.a`
   display: inline-block;
   padding: 0.3em 1em;
   text-decoration: none;
-  color: #67c5ff;
   border: solid 2px #67c5ff;
   border-radius: 20px;
   transition: 0.4s;
