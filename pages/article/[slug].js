@@ -23,6 +23,7 @@ const Article = ({ article, tags }) => {
   const createddAt = article.attributes.createdAt;
   const picture = article.attributes.author.picture;
   const slug = article.attributes.slug;
+  const articleTags = article.attributes.tags.data;
   // const tags = article.attributes.tags.data.map((obj) => obj.word);
   const seo = {
     metaTitle: article.attributes.title,
@@ -30,6 +31,7 @@ const Article = ({ article, tags }) => {
     shareImage: article.attributes.image,
     article: true,
   };
+
   return (
     <Layout seo={seo} tags={tags} page={"article"}>
       <Container>
@@ -39,8 +41,8 @@ const Article = ({ article, tags }) => {
             作成日：
             <Moment format="YYYY年MM月DD日 HH:mm">{createddAt}</Moment>
           </p>
-          {tags.map((tag) => {
-            return <Tags key="tag.attributes.word">{tag.attributes.word}</Tags>;
+          {articleTags.map((tag) => {
+            return <Tags key={tag.attributes.word}>{tag.attributes.word}</Tags>;
           })}
 
           <ImageArea>
