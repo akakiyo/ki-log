@@ -17,7 +17,6 @@ const Article = ({ article, tags }) => {
   else {
     imageUrl = undefined;
   }
-  console.log(article.attributes);
   const articleTitle = article.attributes.title;
   const articleContent = article.attributes.content;
   const author = article.attributes.author.data.attributes.name;
