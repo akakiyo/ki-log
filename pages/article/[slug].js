@@ -17,10 +17,11 @@ const Article = ({ article, tags }) => {
   else {
     imageUrl = undefined;
   }
+  console.log(article.attributes);
   const articleTitle = article.attributes.title;
   const articleContent = article.attributes.content;
   const author = article.attributes.author.data.attributes.name;
-  const publishedAt = article.attributes.published_at;
+  const createddAt = article.attributes.createdAt;
   const picture = article.attributes.author.picture;
   const slug = article.attributes.slug;
   // const tags = article.attributes.tags.data.map((obj) => obj.word);
@@ -37,7 +38,7 @@ const Article = ({ article, tags }) => {
           <Title>{articleTitle}</Title>
           <p>
             作成日：
-            <Moment format="YYYY年MM月DD日 HH:mm">{publishedAt}</Moment>
+            <Moment format="YYYY年MM月DD日 HH:mm">{createddAt}</Moment>
           </p>
           {tags.map((tag) => {
             return <Tags key="tag.attributes.word">{tag.attributes.word}</Tags>;
