@@ -9,6 +9,7 @@ const Image = ({ image, style }) => {
   // const loader = () => {
   //   return getStrapiMedia(url);
   // };
+  console.log("url", url);
 
   return (
     <img
@@ -19,7 +20,8 @@ const Image = ({ image, style }) => {
       width="500px"
       height="400px"
       objectFit="contain"
-      src={getStrapiMedia(url)}
+      // src={getStrapiMedia(url)}
+      src={url}
       alt={alternativeText || ""}
     />
   );

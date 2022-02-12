@@ -12,12 +12,14 @@ import CardContent from "@mui/material/CardContent";
 import { CardActionArea, CardActions } from "@mui/material";
 
 const CardComponet = ({ article }) => {
+  console.log("article", article);
+
   const title = article.attributes.title;
   const slug = article.attributes.slug;
   const image = article.attributes.image;
   const tags = article.attributes.tags.data;
   const publishedAt = article.attributes.publishedAt;
-
+  console.log("image", image);
   return (
     <Container>
       <ActionsArea>
