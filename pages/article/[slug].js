@@ -4,8 +4,7 @@ import styled from "styled-components";
 import { fetchAPI } from "../../lib/api.js";
 import Layout from "../../components/Layout/Layout.js";
 import Image from "../../components/Image.js";
-import { getStrapiMedia } from "../../lib/media.js";
-// import NextImage from "next/image";
+import gfm from "remark-gfm";
 import { getStrapiURL } from "../../lib/api.js";
 
 import TwitterShare from "../../components/TwitterShare.js";
@@ -32,7 +31,7 @@ const Article = ({ article, tags }) => {
     shareImage: article.attributes.image,
     article: true,
   };
-
+  console.log(articleContent);
   return (
     <Layout seo={seo} tags={tags} page={"article"}>
       <Container>
@@ -61,7 +60,9 @@ const Article = ({ article, tags }) => {
           </ImageArea>
           <TextArea>
             <div>
-              <ReactMarkdown>{articleContent}</ReactMarkdown>
+              <ReactMarkdown plugins={gfm} unwrapDisallowed={false}>
+                {articleContent}
+              </ReactMarkdown>
               <hr />
               <div>
                 <div>{picture && <Image image={picture} />}</div>
