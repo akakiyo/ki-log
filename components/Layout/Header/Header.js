@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import { GlobalContext } from "../../../pages/_app.js";
 import Menu from "./Menu.js";
+import Logo from "../../../public/Logo.svg";
 const Header = ({ categories, tags }) => {
   const { siteName } = useContext(GlobalContext);
   return (
@@ -11,7 +12,9 @@ const Header = ({ categories, tags }) => {
       <Menu categories={categories} tags={tags} />
       <SiteName>
         <Link href="/">
-          <a>{siteName}</a>
+          <a>
+            <Logo />
+          </a>
         </Link>
       </SiteName>
     </Container>
