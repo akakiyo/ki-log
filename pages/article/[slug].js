@@ -6,7 +6,7 @@ import Layout from "../../components/Layout/Layout.js";
 import Image from "../../components/Image.js";
 import gfm from "remark-gfm";
 import { getStrapiURL } from "../../lib/api.js";
-
+import CodeBlock from "../../components/MarkDownStyle/CodeBlock.js";
 import TwitterShare from "../../components/TwitterShare.js";
 
 const Article = ({ article, tags }) => {
@@ -24,12 +24,15 @@ const Article = ({ article, tags }) => {
   const picture = article.attributes.author.picture;
   const slug = article.attributes.slug;
   const articleTags = article.attributes.tags.data;
-  // const tags = article.attributes.tags.data.map((obj) => obj.word);
   const seo = {
     metaTitle: article.attributes.title,
     metaDescription: article.attributes.description,
     shareImage: article.attributes.image,
     article: true,
+  };
+
+  const components = {
+    code: CodeBlock,
   };
   return (
     <Layout seo={seo} tags={tags} page={"article"}>
@@ -51,7 +54,7 @@ const Article = ({ article, tags }) => {
                 height="500px"
                 objectFit="contain"
                 src={imageUrl}
-                // alt={alternativeText || ""}
+                å
               />
             ) : (
               <>画像なし</>
@@ -59,7 +62,7 @@ const Article = ({ article, tags }) => {
           </ImageArea>
           <TextArea>
             <div>
-              <ReactMarkdown plugins={gfm} unwrapDisallowed={false}>
+              <ReactMarkdown components={components}>
                 {articleContent}
               </ReactMarkdown>
               <hr />
