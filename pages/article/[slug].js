@@ -31,7 +31,6 @@ const Article = ({ article, tags }) => {
     shareImage: article.attributes.image,
     article: true,
   };
-  console.log(articleContent);
   return (
     <Layout seo={seo} tags={tags} page={"article"}>
       <Container>
