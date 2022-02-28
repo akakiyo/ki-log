@@ -112,7 +112,7 @@ export async function getStaticProps({ params }) {
       article: articlesRes.data[0],
       tags: tagsRes.data,
     },
-    revalidate: 1,
+    revalidate: 7200, //2時間ごとに更新
   };
 }
 

@@ -47,7 +47,7 @@ export async function getStaticProps({ params }) {
       matchingTags: matchingTags.data[0],
       allTags: allTags.data,
     },
-    revalidate: 1,
+    revalidate: 7200,
   };
 }
 export default Tag;

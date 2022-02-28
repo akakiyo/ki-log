@@ -32,7 +32,7 @@ export async function getStaticProps() {
       homepage: homepageRes.data,
       tags: tagsRes.data,
     },
-    revalidate: 1,
+    revalidate: 7200,
   };
 }
 
