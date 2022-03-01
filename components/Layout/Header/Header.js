@@ -1,12 +1,9 @@
 import styled from "styled-components";
 import React from "react";
 import Link from "next/link";
-import { useContext } from "react";
-import { GlobalContext } from "../../../pages/_app.js";
 import Menu from "./Menu.js";
 import Logo from "../../../public/Logo.svg";
 const Header = ({ categories, tags }) => {
-  const { siteName } = useContext(GlobalContext);
   return (
     <Container>
       <Menu categories={categories} tags={tags} />

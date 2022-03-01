@@ -5,12 +5,10 @@ import { fetchAPI } from "../lib/api.js";
 import styled from "styled-components";
 
 const Home = ({ articles, homepage, tags }) => {
-  const homeTitle = homepage.attributes.hero.title;
   return (
     <Layout seo={homepage.attributes.seo} tags={tags} page={"home"}>
       <div className="uk-section">
         <div className="uk-container uk-container-large">
-          <Title>{homeTitle}</Title>
           <Articles articles={articles} />
         </div>
       </div>
@@ -35,9 +33,5 @@ export async function getStaticProps() {
     revalidate: 7200,
   };
 }
-
-const Title = styled.h1`
-  color: #000000;
-`;
 
 export default Home;

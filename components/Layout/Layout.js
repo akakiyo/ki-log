@@ -10,7 +10,7 @@ const Layout = ({ children, seo, tags, page }) => {
         <Seo seo={seo} />
       </Header>
       <Body page={page}>{children}</Body>
-      <Footer>footer</Footer>
+      <Footer />
     </>
   );
 };

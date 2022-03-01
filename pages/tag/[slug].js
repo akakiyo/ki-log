@@ -11,7 +11,6 @@ const Tag = ({ matchingTags, allTags }) => {
     <Layout tags={allTags} seo={seo} page={"tag"}>
       <div className="uk-section">
         <div className="uk-container uk-container-large">
-          <h1>{matchingTags.attributes.word}</h1>
           <Articles articles={matchingTags.attributes.articles.data} />
         </div>
       </div>

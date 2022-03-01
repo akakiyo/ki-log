@@ -81,7 +81,7 @@ const Content = styled(CardContent)`
   background-color: #ffffff;
 `;
 const Title = styled.h1`
-  font-size: 40px;
+  font-size: 30px;
 `;
 const Tags = styled.p`
   width: 100%;

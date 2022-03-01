@@ -20,7 +20,7 @@ const Article = ({ article, tags }) => {
   const articleTitle = article.attributes.title;
   const articleContent = article.attributes.content;
   const author = article.attributes.author.data.attributes.name;
-  const createddAt = article.attributes.createdAt;
+  const publishedAt = article.attributes.publishedAt;
   const picture = article.attributes.author.picture;
   const slug = article.attributes.slug;
   const articleTags = article.attributes.tags.data;
@@ -41,7 +41,7 @@ const Article = ({ article, tags }) => {
           <Title>{articleTitle}</Title>
           <p>
             作成日：
-            <Moment format="YYYY年MM月DD日 HH:mm">{createddAt}</Moment>
+            <Moment format="YYYY年MM月DD日 HH:mm">{publishedAt}</Moment>
           </p>
           {articleTags.map((tag) => {
             return <Tags key={tag.attributes.word}>{tag.attributes.word}</Tags>;
