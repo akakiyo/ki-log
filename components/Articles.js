@@ -36,7 +36,7 @@ const Articles = ({ articles }) => {
     }
 
     setSortedArticles(sortedArray);
-  }, [sortMethod]);
+  }, [sortMethod, articles]);
   return (
     <>
       <Select
@@ -44,10 +44,10 @@ const Articles = ({ articles }) => {
           setSortMethod(event.target.value);
         }}
       >
-        <option value="ascending_order">日付順</option>
         <option value="descending_order" selected>
           新着順
         </option>
+        <option value="ascending_order">日付順</option>
       </Select>
       <List>
         {sortedArticles.map((article) => {
@@ -79,6 +79,10 @@ const Select = styled.select`
   width: 15em;
   color: black;
   text-indent: 1.5em;
+  border: none;
+  border-radius: 10px;
+  background: #ffffff;
+  margin-bottom: 20px;
   :hover {
     background-color: #ffffff;
     color: black;

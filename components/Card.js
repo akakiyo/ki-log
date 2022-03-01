@@ -60,7 +60,6 @@ const Container = styled(Card)`
 const ActionsArea = styled(CardActionArea)`
   height: 100%;
   width: 100%;
-  /* background-color: #808080; */
   margin-bottom: 0px;
 `;
 const ImageArea = styled.div`
