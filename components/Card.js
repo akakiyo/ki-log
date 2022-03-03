@@ -5,11 +5,15 @@ import styled from "styled-components";
 import Image from "./Image.js";
 import { getStrapiURL } from "../lib/api.js";
 import TwitterShare from "./TwitterShare.js";
+import useMediaQuery from "./useMediaQuery.js";
+import { MobaileSiteStyle } from "./styledMediaQuery";
 
-//materialUI
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { CardActionArea, CardActions } from "@mui/material";
+
+const omit = (text) => (len) => (ellipsis) =>
+  text.length >= len ? text.slice(0, len - ellipsis.length) + ellipsis : text;
 
 const CardComponet = ({ article }) => {
   const title = article.attributes.title;
@@ -17,6 +21,7 @@ const CardComponet = ({ article }) => {
   const image = article.attributes.image;
   const tags = article.attributes.tags.data;
   const publishedAt = article.attributes.publishedAt;
+  const { isMobileSite, isTabletSite, isPcSite } = useMediaQuery();
   return (
     <Container>
       <ActionsArea>
@@ -26,7 +31,11 @@ const CardComponet = ({ article }) => {
               <Image image={image} />
             </ImageArea>
             <Content>
-              <Title>{title}</Title>
+              <Title>
+                {isMobileSite && omit(title)(30)("...")}
+                {isTabletSite && omit(title)(45)("...")}
+                {isPcSite && omit(title)(50)("...")}
+              </Title>
               <Tags>
                 {tags &&
                   Object.values(tags).map((tag) => {
@@ -55,7 +64,10 @@ const Container = styled(Card)`
   /* max-height: 700; */
   position: relative;
   height: 600px;
-  border-radius: 20px; /* 線幅の半分 */
+  border-radius: 20px;
+  ${MobaileSiteStyle`
+    height:460px;
+  `};
 `;
 const ActionsArea = styled(CardActionArea)`
   height: 100%;
@@ -70,6 +82,10 @@ const ImageArea = styled.div`
   width: 100%;
   height: 350px;
   padding: 20px;
+
+  ${MobaileSiteStyle`
+    height:200px;
+  `};
 `;
 const Content = styled(CardContent)`
   position: relative;
@@ -81,6 +97,7 @@ const Content = styled(CardContent)`
 `;
 const Title = styled.h1`
   font-size: 30px;
+  text-overflow: ellipsis;
 `;
 const Tags = styled.p`
   width: 100%;

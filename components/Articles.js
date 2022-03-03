@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import CardComponet from "./Card.js";
 import styled from "styled-components";
+import CardComponet from "./Card.js";
+import { MobaileSiteStyle, TabletSiteStyle } from "./styledMediaQuery";
 
 const Articles = ({ articles }) => {
   const [sortMethod, setSortMethod] = useState("descending_order");
@@ -72,6 +73,15 @@ const Item = styled.div`
   margin: 5px;
   float: left;
   width: calc(50% - 10px);
+  height: 100%;
+  ${MobaileSiteStyle`
+    float: none;
+    width: 100%;
+  `}
+  ${TabletSiteStyle`
+    float: none;
+    width: 100%;
+  `}
 `;
 const Select = styled.select`
   position: relative;

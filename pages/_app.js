@@ -1,7 +1,7 @@
 import App from "next/app";
 import Head from "next/head";
 import { createContext } from "react";
-import { getStrapiMedia } from "../lib/media.js";
+// import { getStrapiMedia } from "../lib/media.js";
 import { fetchAPI } from "../lib/api.js";
 // import "../styles/menu.css";
 import "../styles/Home.module.css";
