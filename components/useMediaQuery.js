@@ -1,9 +1,9 @@
 import useMedia from "use-media";
 
 const mediaQueries = {
-  mobile: "(max-width: 519px)",
-  tablet: "(min-width: 520px) and (max-width: 959px)",
-  pc: "(min-width: 960px)",
+  mobile: "(max-width: 599px)",
+  tablet: "(min-width: 600px) and (max-width: 1024px)",
+  pc: "(min-width: 1025px)",
 };
 
 const useMediaQuery = () => {

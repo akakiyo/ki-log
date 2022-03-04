@@ -1,7 +1,7 @@
 import { generateMedia } from "styled-media-query";
 const customMedia = generateMedia({
-  mobile: "519px",
-  desktop: "960px",
+  mobile: "599px",
+  desktop: "1025px",
 });
 const MobaileSiteStyle = customMedia.lessThan("mobile");
 const TabletSiteStyle = customMedia.between("mobile", "desktop");

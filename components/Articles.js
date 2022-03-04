@@ -70,15 +70,11 @@ const List = styled.ul`
 `;
 const Item = styled.div`
   color: black;
-  margin: 5px;
+  margin: 20px 5px;
   float: left;
   width: calc(50% - 10px);
   height: 100%;
   ${MobaileSiteStyle`
-    float: none;
-    width: 100%;
-  `}
-  ${TabletSiteStyle`
     float: none;
     width: 100%;
   `}

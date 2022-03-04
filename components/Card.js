@@ -32,9 +32,10 @@ const CardComponet = ({ article }) => {
             </ImageArea>
             <Content>
               <Title>
-                {isMobileSite && omit(title)(30)("...")}
-                {isTabletSite && omit(title)(45)("...")}
-                {isPcSite && omit(title)(50)("...")}
+                {title}
+                {/* {isMobileSite && omit(title)(30)("...")}
+                {isTabletSite && omit(title)(35)("...")}
+                {isPcSite && omit(title)(50)("...")} */}
               </Title>
               <Tags>
                 {tags &&
@@ -61,13 +62,9 @@ const CardComponet = ({ article }) => {
 };
 
 const Container = styled(Card)`
-  /* max-height: 700; */
   position: relative;
-  height: 600px;
+  height: 430px;
   border-radius: 20px;
-  ${MobaileSiteStyle`
-    height:460px;
-  `};
 `;
 const ActionsArea = styled(CardActionArea)`
   height: 100%;
@@ -77,11 +74,11 @@ const ActionsArea = styled(CardActionArea)`
 const ImageArea = styled.div`
   text-align: center;
   position: relative;
-  background-color: #ffffff;
+  background-color: ;
   top: 0;
   width: 100%;
-  height: 350px;
-  padding: 20px;
+  height: 200px;
+  padding: 10px;
 
   ${MobaileSiteStyle`
     height:200px;
@@ -97,7 +94,11 @@ const Content = styled(CardContent)`
 `;
 const Title = styled.h1`
   font-size: 30px;
-  text-overflow: ellipsis;
+  //2行以上は省略
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
 const Tags = styled.p`
   width: 100%;
