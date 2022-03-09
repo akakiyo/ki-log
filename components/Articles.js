@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import CardComponet from "./Card.js";
-import { MobaileSiteStyle, TabletSiteStyle } from "./styledMediaQuery";
+import { MobaileSiteStyle } from "./styledMediaQuery";
 
 const Articles = ({ articles }) => {
   const [sortMethod, setSortMethod] = useState("descending_order");

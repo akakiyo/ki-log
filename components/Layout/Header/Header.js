@@ -24,8 +24,6 @@ const Container = styled.div`
 `;
 const SiteName = styled.div`
   text-align: center;
-  font-size: 60px;
-  color: #67c5ff;
 `;
 
 export default Header;

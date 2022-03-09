@@ -12,7 +12,6 @@ import TwitterShare from "../../components/TwitterShare.js";
 const Article = ({ article, tags }) => {
   let imageUrl;
   if (article.attributes.image.data)
-    // imageUrl = getStrapiMedia(article.attributes.image.data.attributes.url);
     imageUrl = article.attributes.image.data.attributes.url;
   else {
     imageUrl = undefined;
