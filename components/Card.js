@@ -69,7 +69,7 @@ const ImageArea = styled.div`
   text-align: center;
 
   ${MobaileSiteStyle`
-    height:200px;
+    height:1z90px;
   `};
 `;
 const Content = styled(CardContent)`
@@ -81,7 +81,8 @@ const Content = styled(CardContent)`
   font-size: 18px;
 `;
 const Title = styled.h1`
-  font-size: 30px;
+  padding: 0 10px;
+  font-size: 25px;
   //2行以上は省略
   display: -webkit-box;
   overflow: hidden;
