@@ -62,26 +62,26 @@ const ActionsArea = styled(CardActionArea)`
 `;
 const ImageArea = styled.div`
   position: relative;
-  width: 100%;
+  width: 90%;
   height: 200px;
   top: 0;
   padding: 10px;
   text-align: center;
 
   ${MobaileSiteStyle`
-    height:1z90px;
+    height:190px;
   `};
 `;
 const Content = styled(CardContent)`
   position: relative;
   height: 100%;
-  width: 100%;
+  width: 90%;
   background-color: #ffffff;
   color: #000000;
   font-size: 18px;
 `;
 const Title = styled.h1`
-  padding: 0 10px;
+  padding-right: 5px;
   font-size: 25px;
   //2行以上は省略
   display: -webkit-box;
