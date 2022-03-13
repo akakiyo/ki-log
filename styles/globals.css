@@ -13,7 +13,3 @@ a {
 a:hover {
   text-decoration: none; /* マウスホバー時だけ下線を出す */
 }
-
-* {
-  box-sizing: border-box;
-}

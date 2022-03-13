@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Image from "./Image.js";
 import { getStrapiURL } from "../lib/api.js";
 import TwitterShare from "./TwitterShare.js";
-import { MobaileSiteStyle } from "./styledMediaQuery";
+import { MobaileSiteStyle } from "./MediaQuery/styledMediaQuery";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { CardActionArea, CardActions } from "@mui/material";

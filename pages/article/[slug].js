@@ -4,10 +4,10 @@ import styled from "styled-components";
 import { fetchAPI } from "../../lib/api.js";
 import Layout from "../../components/Layout/Layout.js";
 import Image from "../../components/Image.js";
-import gfm from "remark-gfm";
 import { getStrapiURL } from "../../lib/api.js";
 import CodeBlock from "../../components/MarkDownStyle/CodeBlock.js";
 import TwitterShare from "../../components/TwitterShare.js";
+import { MobaileSiteStyle } from "../../components/MediaQuery/styledMediaQuery";
 
 const Article = ({ article, tags }) => {
   let imageUrl;
@@ -53,7 +53,6 @@ const Article = ({ article, tags }) => {
                 height="500px"
                 objectFit="contain"
                 src={imageUrl}
-                å
               />
             ) : (
               <>画像なし</>
@@ -131,6 +130,9 @@ const Content = styled.div`
   background-color: #ffffff;
   border-radius: 20px; /* 線幅の半分 */
   padding: 5%;
+  ${MobaileSiteStyle`
+    width:90%;
+  `};
 `;
 const Container = styled.div`
   display: flex;
