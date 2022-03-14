@@ -27,17 +27,13 @@ const Container = styled.div`
   height: 100px;
   background-color: #000000;
   color: #67c5ff;
-  display: table;
 `;
 const Right = styled.div`
-  display: table-cell;
-  vertical-align: middle;
-  margin: auto;
+  text-align: center;
 `;
 const SNSButton = styled.div`
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
+  margin-left: 10%;
+  text-align: left;
   a {
     margin-left: 3px;
   }

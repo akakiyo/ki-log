@@ -11,9 +11,9 @@ const Header = ({ categories, tags }) => {
     <Container>
       <Menu categories={categories} tags={tags} />
       <SiteName>
-        <StyledLink href="/">
+        <Link href="/">
           <a>{isMobileSite ? <SmallLogo /> : <Logo />}</a>
-        </StyledLink>
+        </Link>
       </SiteName>
     </Container>
   );
@@ -30,6 +30,5 @@ const SiteName = styled.div`
   align-items: center;
   height: 100%;
 `;
-const StyledLink = styled(Link)``;
 
 export default Header;
