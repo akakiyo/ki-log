@@ -3,16 +3,12 @@ import { dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import styled from "styled-components";
 const CodeBlock = ({ inline, className, children, ...props }) => {
   const match = /language-(\w+)/.exec(className || "");
-  // console.log("match", match);
-  // console.log("className", className);
-  // console.log("children", children);
-  // console.log("props", props);
   const fileName = match?.["input"].split(":")[1];
-  console.log(fileName);
 
   return !inline && match ? (
     <>
-      <FileNameWrapper>&nbsp;{fileName}</FileNameWrapper>
+      <FileNameWrapper>{fileName}</FileNameWrapper>
+      <br />
       <SyntaxHighlighter style={dark} language={match[1]}>
         {String(children).replace(/\n$/, "")}
       </SyntaxHighlighter>
@@ -26,10 +22,7 @@ const CodeBlock = ({ inline, className, children, ...props }) => {
 
 const FileNameWrapper = styled.p`
   position: absolute;
-  width: fit-content;
-  margin: 0 0 0 0.5vw;
-  color: #ffffff;
-  border-bottom: #ffffff 1px solid;
+  color: black;
   z-index: 100;
 `;
 
