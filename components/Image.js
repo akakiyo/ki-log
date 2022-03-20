@@ -1,5 +1,3 @@
-import { getStrapiMedia } from "../lib/media.js";
-// import NextImage from "next/image";
 import NextImage from "next/image";
 
 const Image = ({ image, style }) => {

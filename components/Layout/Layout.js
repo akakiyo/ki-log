@@ -6,9 +6,9 @@ import Seo from "./seo.js";
 const Layout = ({ children, seo, tags, page }) => {
   return (
     <>
-      <Header tags={tags}>
-        <Seo seo={seo} />
-      </Header>
+      <Seo seo={seo} />
+      <Header tags={tags} />
+
       <Body page={page}>{children}</Body>
       <Footer />
     </>

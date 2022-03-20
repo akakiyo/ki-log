@@ -1,24 +1,20 @@
 import Head from "next/head";
 import { useContext } from "react";
 import { GlobalContext } from "../../pages/_app.js";
-import { getStrapiMedia } from "../../lib/media.js";
 
 const Seo = ({ seo }) => {
   const { defaultSeo, siteName } = useContext(GlobalContext);
-  const seoWithDefaults = {
+
+  const fullSeo = {
     ...defaultSeo,
     ...seo,
-  };
-  const fullSeo = {
-    ...seoWithDefaults,
-    // Add title suffix
-    metaTitle: `${seoWithDefaults.metaTitle} | ${siteName}`,
-    // Get full image URL
-    shareImage: getStrapiMedia(seoWithDefaults.shareImage),
+    metaTitle: `${seoWithDefaults.metaTitle}`,
+    title: `${siteName}`,
   };
 
   return (
     <Head>
+      {fullSeo.title && <title>{fullSeo.title}</title>}
       {fullSeo.metaTitle && (
         <>
           <title>{fullSeo.metaTitle}</title>
