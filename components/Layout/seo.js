@@ -8,7 +8,7 @@ const Seo = ({ seo }) => {
   const fullSeo = {
     ...defaultSeo,
     ...seo,
-    metaTitle: `${seoWithDefaults.metaTitle}`,
+    // metaTitle: `${seoWithDefaults.metaTitle}`,
     title: `${siteName}`,
   };
 
