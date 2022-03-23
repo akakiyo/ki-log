@@ -9,15 +9,15 @@ const Seo = ({ seo }) => {
     ...defaultSeo,
     ...seo,
     // metaTitle: `${seoWithDefaults.metaTitle}`,
-    title: `${siteName}`,
+    siteName: `${siteName}`,
   };
+  console.log(fullSeo);
 
   return (
     <Head>
-      {fullSeo.title && <title>{fullSeo.title}</title>}
+      {fullSeo.title && <title>{fullSeo.siteName}</title>}
       {fullSeo.metaTitle && (
         <>
-          <title>{fullSeo.metaTitle}</title>
           <meta property="og:title" content={fullSeo.metaTitle} />
           <meta name="twitter:title" content={fullSeo.metaTitle} />
         </>

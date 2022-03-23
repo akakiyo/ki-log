@@ -5,6 +5,7 @@ import { fetchAPI } from "../lib/api.js";
 import styled from "styled-components";
 
 const Home = ({ articles, homepage, tags }) => {
+  console.log("homepage", homepage);
   return (
     <Layout seo={homepage.attributes.seo} tags={tags} page={"home"}>
       <div className="uk-section">
