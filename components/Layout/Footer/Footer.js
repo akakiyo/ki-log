@@ -8,12 +8,12 @@ const Footer = () => {
     <Container>
       <SNSButton>
         <Link href={`https://twitter.com/akakiyo2000`}>
-          <a target="_blank">
+          <a>
             <TwitterIcon size={30} round />
           </a>
         </Link>
         <Link href={`https://github.com/akakiyo`}>
-          <a target="_blank">
+          <a>
             <FaGithub size={30} />
           </a>
         </Link>

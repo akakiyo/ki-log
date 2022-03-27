@@ -8,10 +8,8 @@ const Seo = ({ seo }) => {
   const fullSeo = {
     ...defaultSeo,
     ...seo,
-    // metaTitle: `${seoWithDefaults.metaTitle}`,
     siteName: `${siteName}`,
   };
-  console.log(fullSeo);
 
   return (
     <Head>
@@ -37,7 +35,6 @@ const Seo = ({ seo }) => {
         </>
       )}
       {fullSeo.article && <meta property="og:type" content="article" />}
-      <meta name="twitter:card" content="summary_large_image" />
     </Head>
   );
 };
