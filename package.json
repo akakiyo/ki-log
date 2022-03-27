@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.6.0",
     "@mui/material": "^5.2.8",
     "@mui/styled-engine-sc": "^5.1.0",
+    "axios": "^0.26.1",
     "babel-plugin-inline-react-svg": "^2.0.1",
     "babel-plugin-styled-components": "^2.0.2",
     "firebase-tools": "^10.1.1",

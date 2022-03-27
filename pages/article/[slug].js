@@ -3,32 +3,25 @@ import Moment from "react-moment";
 import styled from "styled-components";
 import { fetchAPI } from "../../lib/api.js";
 import Layout from "../../components/Layout/Layout.js";
-import Image from "../../components/Image.js";
 import { getStrapiURL } from "../../lib/api.js";
 import CodeBlock from "../../components/MarkDownStyle/CodeBlock.js";
 import TwitterShare from "../../components/TwitterShare.js";
 import { MobaileSiteStyle } from "../../components/MediaQuery/styledMediaQuery";
 
 const Article = ({ article, tags }) => {
-  let imageUrl;
-  if (article.attributes.image.data)
-    imageUrl = article.attributes.image.data.attributes.url;
-  else {
-    imageUrl = undefined;
-  }
-  const articleTitle = article.attributes.title;
-  const articleContent = article.attributes.content;
-  const author = article.attributes.author.data.attributes.name;
-  const publishedAt = article.attributes.publishedAt;
-  const picture = article.attributes.author.picture;
-  const slug = article.attributes.slug;
-  const articleTags = article.attributes.tags.data;
   const seo = {
     metaTitle: article.attributes.title,
     metaDescription: article.attributes.description,
     shareImage: article.attributes.image,
     article: true,
   };
+  const articleTitle = article.attributes.title;
+  const publishedAt = article.attributes.publishedAt;
+  const articleTags = article.attributes.tags.data;
+  const imageUrl = article.attributes.image.data?.attributes.url;
+  const articleContent = article.attributes.content;
+  const author = article.attributes.author.data.attributes.name;
+  const slug = article.attributes.slug;
 
   const components = {
     code: CodeBlock,
@@ -65,7 +58,6 @@ const Article = ({ article, tags }) => {
               </ReactMarkdown>
               <hr />
               <div>
-                <div>{picture && <Image image={picture} />}</div>
                 <div>
                   <p>By {author}</p>
                 </div>

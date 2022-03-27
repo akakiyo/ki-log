@@ -5,8 +5,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          {/* eslint-disable-next-line */}
-
           <link
             rel="icon"
             type="image/png"

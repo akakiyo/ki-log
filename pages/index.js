@@ -2,10 +2,8 @@ import React from "react";
 import Articles from "../components/Articles.js";
 import Layout from "../components/Layout/Layout.js";
 import { fetchAPI } from "../lib/api.js";
-import styled from "styled-components";
 
 const Home = ({ articles, homepage, tags }) => {
-  console.log("homepage", homepage);
   return (
     <Layout seo={homepage.attributes.seo} tags={tags} page={"home"}>
       <div className="uk-section">
@@ -18,7 +16,6 @@ const Home = ({ articles, homepage, tags }) => {
 };
 
 export async function getStaticProps() {
-  // Run API calls in parallel
   const [articlesRes, homepageRes, tagsRes] = await Promise.all([
     fetchAPI("/articles", { populate: "*" }),
     fetchAPI("/homepage", { populate: "*" }),

@@ -1,6 +1,6 @@
 import NextImage from "next/image";
 
-const Image = ({ image, style }) => {
+const Image = ({ image }) => {
   if (!image.data) {
     return <div>画像なし</div>;
   }
