@@ -20,34 +20,42 @@ const Tag = ({ matchingTags, allTags }) => {
 };
 
 export async function getStaticPaths() {
-  const tagsRes = await fetchAPI("/tags", { fields: ["slug"] });
+  try {
+    const tagsRes = await fetchAPI("/tags", { fields: ["slug"] });
 
-  return {
-    paths: tagsRes.data.map((tag) => ({
-      params: {
-        slug: tag.attributes.slug,
-      },
-    })),
-    fallback: false,
-  };
+    return {
+      paths: tagsRes.data.map((tag) => ({
+        params: {
+          slug: tag.attributes.slug,
+        },
+      })),
+      fallback: false,
+    };
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 export async function getStaticProps({ params }) {
-  const matchingTags = await fetchAPI("/tags", {
-    filters: { slug: params.slug },
-    populate: {
-      articles: {
-        populate: "*",
+  try {
+    const matchingTags = await fetchAPI("/tags", {
+      filters: { slug: params.slug },
+      populate: {
+        articles: {
+          populate: "*",
+        },
       },
-    },
-  });
-  const allTags = await fetchAPI("/tags", { populate: "*" });
-  return {
-    props: {
-      matchingTags: matchingTags.data[0],
-      allTags: allTags.data,
-    },
-    revalidate: 7200,
-  };
+    });
+    const allTags = await fetchAPI("/tags", { populate: "*" });
+    return {
+      props: {
+        matchingTags: matchingTags.data[0],
+        allTags: allTags.data,
+      },
+      revalidate: 7200,
+    };
+  } catch (err) {
+    console.error(err);
+  }
 }
 export default Tag;

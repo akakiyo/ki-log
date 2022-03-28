@@ -13,7 +13,7 @@ const Seo = ({ seo }) => {
 
   return (
     <Head>
-      {fullSeo.title && <title>{fullSeo.siteName}</title>}
+      {fullSeo.siteName && <title>{fullSeo.siteName}</title>}
       {fullSeo.metaTitle && (
         <>
           <meta property="og:title" content={fullSeo.metaTitle} />
