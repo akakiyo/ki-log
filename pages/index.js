@@ -16,19 +16,23 @@ const Home = ({ articles, homepage, tags }) => {
 };
 
 export async function getStaticProps() {
-  const [articlesRes, homepageRes, tagsRes] = await Promise.all([
-    fetchAPI("/articles", { populate: "*" }),
-    fetchAPI("/homepage", { populate: "*" }),
-    fetchAPI("/tags", { populate: "*" }),
-  ]);
-  return {
-    props: {
-      articles: articlesRes.data,
-      homepage: homepageRes.data,
-      tags: tagsRes.data,
-    },
-    revalidate: 7200,
-  };
+  try {
+    const [articlesRes, homepageRes, tagsRes] = await Promise.all([
+      fetchAPI("/articles", { populate: "*" }),
+      fetchAPI("/homepage", { populate: "*" }),
+      fetchAPI("/tags", { populate: "*" }),
+    ]);
+    return {
+      props: {
+        articles: articlesRes.data,
+        homepage: homepageRes.data,
+        tags: tagsRes.data,
+      },
+      revalidate: 7200,
+    };
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 export default Home;
