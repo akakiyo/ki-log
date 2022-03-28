@@ -76,34 +76,42 @@ const Article = ({ article, tags }) => {
 };
 
 export async function getStaticPaths() {
-  const articlesRes = await fetchAPI("/articles", { fields: ["slug"] });
+  try {
+    const articlesRes = await fetchAPI("/articles", { fields: ["slug"] });
 
-  return {
-    paths: articlesRes.data.map((article) => ({
-      params: {
-        slug: article.attributes.slug,
-      },
-    })),
-    fallback: "blocking",
-  };
+    return {
+      paths: articlesRes.data.map((article) => ({
+        params: {
+          slug: article.attributes.slug,
+        },
+      })),
+      fallback: "blocking",
+    };
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 export async function getStaticProps({ params }) {
-  const articlesRes = await fetchAPI("/articles", {
-    filters: {
-      slug: params.slug,
-    },
-    populate: "*",
-  });
-  const tagsRes = await fetchAPI("/tags", { populate: "*" });
+  try {
+    const articlesRes = await fetchAPI("/articles", {
+      filters: {
+        slug: params.slug,
+      },
+      populate: "*",
+    });
+    const tagsRes = await fetchAPI("/tags", { populate: "*" });
 
-  return {
-    props: {
-      article: articlesRes.data[0],
-      tags: tagsRes.data,
-    },
-    revalidate: 7200, //2時間ごとに更新
-  };
+    return {
+      props: {
+        article: articlesRes.data[0],
+        tags: tagsRes.data,
+      },
+      revalidate: 7200, //2時間ごとに更新
+    };
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 const ImageArea = styled.div`

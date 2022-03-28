@@ -16,10 +16,9 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
-MyApp.getInitialProps = async (ctx) => {
-  const appProps = await App.getInitialProps(ctx);
+MyApp.getInitialProps = async () => {
   const globalRes = await fetchAPI("/global");
-  return { ...appProps, pageProps: { global: globalRes.data } };
+  return { pageProps: { global: globalRes.data } };
 };
 
 export default MyApp;
