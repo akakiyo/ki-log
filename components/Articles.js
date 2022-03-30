@@ -12,26 +12,26 @@ const Articles = ({ articles }) => {
     switch (sortMethod) {
       case "ascending_order":
         sortedArray = articles
-          .map((rec) => {
-            return { rec, key: rec.attributes.publishedAt };
+          .map((article) => {
+            return { article, key: article.attributes.publishedAt };
           })
           .sort((a, b) => {
             return a.key < b.key ? -1 : 1;
           })
           .map((obj) => {
-            return obj.rec;
+            return obj.article;
           });
         break;
       case "descending_order":
         sortedArray = articles
-          .map((rec) => {
-            return { rec, key: rec.attributes.publishedAt };
+          .map((article) => {
+            return { article, key: article.attributes.publishedAt };
           })
           .sort((a, b) => {
             return a.key > b.key ? -1 : 1;
           })
           .map((obj) => {
-            return obj.rec;
+            return obj.article;
           });
         break;
     }
